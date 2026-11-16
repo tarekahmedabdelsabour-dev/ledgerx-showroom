@@ -1,0 +1,51 @@
+{
+ "actions": [],
+ "creation": "2026-11-16 08:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "transfer_date",
+  "from_showroom",
+  "to_showroom",
+  "note"
+ ],
+ "fields": [
+  {
+   "fieldname": "transfer_date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "from_showroom",
+   "fieldtype": "Link",
+   "label": "From",
+   "options": "Showroom",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "to_showroom",
+   "fieldtype": "Link",
+   "label": "To",
+   "options": "Showroom",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Data",
+   "label": "Note"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-16 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Showroom",
+ "name": "Car Transfer Log",
+ "owner": "Administrator",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "permissions": [],
+ "istable": 1,
+ "allow_rename": 0
+}

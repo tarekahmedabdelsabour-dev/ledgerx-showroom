@@ -1,0 +1,213 @@
+{
+ "actions": [],
+ "creation": "2026-11-16 08:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "default_paid_from",
+  "cb1",
+  "default_booking_days",
+  "sb_acc",
+  "inventory_account",
+  "cogs_account",
+  "sales_income_account",
+  "cb2",
+  "extras_income_account",
+  "financing_income_account",
+  "vat_account",
+  "vat_rate",
+  "sb_fin",
+  "bank_fee_account",
+  "loan_clearing_account",
+  "loan_product",
+  "cb3",
+  "default_markup_pct",
+  "default_months",
+  "sb_com",
+  "commission_pct",
+  "commission_component"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "default_paid_from",
+   "fieldtype": "Link",
+   "label": "Default Account Money Is Paid From",
+   "options": "Account",
+   "description": "Cash or bank account used for purchases and preparation costs unless another is chosen."
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_booking_days",
+   "fieldtype": "Int",
+   "label": "Booking Holds the Car For (days)",
+   "default": 3
+  },
+  {
+   "fieldname": "sb_acc",
+   "fieldtype": "Section Break",
+   "label": "Accounts"
+  },
+  {
+   "fieldname": "inventory_account",
+   "fieldtype": "Link",
+   "label": "Cars Inventory Account",
+   "options": "Account",
+   "reqd": 1,
+   "description": "Asset account that holds the cost of cars in stock."
+  },
+  {
+   "fieldname": "cogs_account",
+   "fieldtype": "Link",
+   "label": "Cost of Cars Sold Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sales_income_account",
+   "fieldtype": "Link",
+   "label": "Car Sales Revenue Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "extras_income_account",
+   "fieldtype": "Link",
+   "label": "Extras Revenue Account",
+   "options": "Account",
+   "description": "Plates, papers, accessories. Empty: the car sales account."
+  },
+  {
+   "fieldname": "financing_income_account",
+   "fieldtype": "Link",
+   "label": "Financing Income Account",
+   "options": "Account",
+   "description": "The markup charged on the showroom's own installments."
+  },
+  {
+   "fieldname": "vat_account",
+   "fieldtype": "Link",
+   "label": "VAT Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "vat_rate",
+   "fieldtype": "Percent",
+   "label": "VAT on Cars (%)",
+   "default": 0
+  },
+  {
+   "fieldname": "sb_fin",
+   "fieldtype": "Section Break",
+   "label": "Financing"
+  },
+  {
+   "fieldname": "bank_fee_account",
+   "fieldtype": "Link",
+   "label": "Financier Fees Account",
+   "options": "Account",
+   "description": "Fees the bank or finance company keeps from what it pays."
+  },
+  {
+   "fieldname": "loan_clearing_account",
+   "fieldtype": "Link",
+   "label": "Loan Clearing Account",
+   "options": "Account",
+   "description": "Set this account as the Disbursement Account of the loan product, so a loan paid out to settle a car invoice nets to zero."
+  },
+  {
+   "fieldname": "loan_product",
+   "fieldtype": "Data",
+   "label": "Loan Product (Lending)",
+   "description": "Name of the loan product used for loan-financed sales. Leave empty if the Lending module is not used."
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_markup_pct",
+   "fieldtype": "Percent",
+   "label": "Default Markup on Installments (%)",
+   "default": 0,
+   "description": "A flat percentage of the financed amount, for the showroom's own installments."
+  },
+  {
+   "fieldname": "default_months",
+   "fieldtype": "Int",
+   "label": "Default Number of Installments",
+   "default": 12
+  },
+  {
+   "fieldname": "sb_com",
+   "fieldtype": "Section Break",
+   "label": "Commission"
+  },
+  {
+   "fieldname": "commission_pct",
+   "fieldtype": "Percent",
+   "label": "Salesman Commission (% of the margin)",
+   "default": 0
+  },
+  {
+   "fieldname": "commission_component",
+   "fieldtype": "Link",
+   "label": "Salary Component for Commission",
+   "options": "Salary Component",
+   "description": "Created on install. Monthly drafts of Additional Salary use it."
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-16 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Showroom",
+ "name": "Showroom Settings",
+ "owner": "Administrator",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "permissions": [
+  {
+   "role": "Showroom Manager",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "write": 1
+  },
+  {
+   "role": "Showroom Accountant",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  }
+ ],
+ "icon": "fa fa-cog",
+ "issingle": 1,
+ "allow_rename": 0
+}

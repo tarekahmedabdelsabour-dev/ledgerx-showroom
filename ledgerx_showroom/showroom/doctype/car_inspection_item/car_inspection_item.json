@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "creation": "2026-11-16 08:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "result",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Data",
+   "label": "Check",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "result",
+   "fieldtype": "Select",
+   "label": "Result",
+   "options": "OK\nNeeds Work\nBad\nNot Checked",
+   "default": "Not Checked",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Data",
+   "label": "Notes",
+   "in_list_view": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-16 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Showroom",
+ "name": "Car Inspection Item",
+ "owner": "Administrator",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "permissions": [],
+ "istable": 1,
+ "allow_rename": 0
+}

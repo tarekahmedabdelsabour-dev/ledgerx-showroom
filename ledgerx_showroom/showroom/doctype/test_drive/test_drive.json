@@ -1,0 +1,120 @@
+{
+ "actions": [],
+ "creation": "2026-11-16 08:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "car",
+  "customer",
+  "lead_name",
+  "phone",
+  "cb1",
+  "drive_date",
+  "salesman",
+  "outcome",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "car",
+   "fieldtype": "Link",
+   "label": "Car",
+   "options": "Car",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "lead_name",
+   "fieldtype": "Data",
+   "label": "Name (when not yet a customer)",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "drive_date",
+   "fieldtype": "Datetime",
+   "label": "When",
+   "default": "Now",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "salesman",
+   "fieldtype": "Link",
+   "label": "Salesman",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "outcome",
+   "fieldtype": "Select",
+   "label": "Outcome",
+   "options": "Scheduled\nInterested\nNot Interested\nBooked",
+   "default": "Scheduled",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-16 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Showroom",
+ "name": "Test Drive",
+ "owner": "Administrator",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "permissions": [
+  {
+   "role": "Showroom Manager",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "Showroom Salesman",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "write": 1,
+   "create": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  }
+ ],
+ "autoname": "format:TD-{#####}",
+ "title_field": "lead_name",
+ "icon": "fa fa-road",
+ "allow_rename": 0
+}

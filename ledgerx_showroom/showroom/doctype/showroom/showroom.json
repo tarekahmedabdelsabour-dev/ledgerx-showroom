@@ -1,0 +1,129 @@
+{
+ "actions": [],
+ "creation": "2026-11-16 08:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "showroom_name",
+  "company",
+  "cost_center",
+  "active",
+  "cb1",
+  "manager",
+  "city",
+  "phone",
+  "address"
+ ],
+ "fields": [
+  {
+   "fieldname": "showroom_name",
+   "fieldtype": "Data",
+   "label": "Showroom",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center",
+   "reqd": 1,
+   "description": "Every purchase, cost and sale of this showroom is posted to it, so each showroom has its own profit."
+  },
+  {
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active",
+   "default": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "manager",
+   "fieldtype": "Link",
+   "label": "Manager",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-16 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Showroom",
+ "name": "Showroom",
+ "owner": "Administrator",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "permissions": [
+  {
+   "role": "Showroom Manager",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "Showroom Salesman",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  },
+  {
+   "role": "Showroom Technician",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  },
+  {
+   "role": "Showroom Accountant",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  }
+ ],
+ "autoname": "field:showroom_name",
+ "title_field": "showroom_name",
+ "icon": "fa fa-building",
+ "allow_rename": 0
+}

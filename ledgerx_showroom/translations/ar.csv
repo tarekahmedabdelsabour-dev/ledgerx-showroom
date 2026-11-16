@@ -1,0 +1,279 @@
+A booking's deposit is applied to the invoice.,يُخصم عربون الحجز من الفاتورة.
+"A flat percentage of the financed amount, for the showroom's own installments.",نسبة ثابتة من المبلغ الممول، لأقساط المعرض الخاصة.
+A sold car can no longer be changed this way,لا يمكن تعديل سيارة مباعة بهذه الطريقة
+Accounting and Commission,المحاسبة والعمولة
+Accounts,الحسابات
+Active,نشط
+Active Bookings,الحجوزات النشطة
+Add Cost,إضافة تكلفة
+Address,العنوان
+Agreed Price,السعر المتفق عليه
+Amount,المبلغ
+Amount Due,المبلغ المستحق
+Asking Price,السعر المطلوب
+Asset account that holds the cost of cars in stock.,حساب الأصول الذي يحمل تكلفة السيارات في المخزون.
+Automatic,أوتوماتيك
+Bad,سيئ
+Bank,البنك
+Bank Financing,التمويل البنكي
+Bank or Finance Company,بنك أو شركة تمويل
+Below the Minimum,أقل من الحد الأدنى
+Body,الهيكل
+Book the Car,حجز السيارة
+Booked,محجوزة
+Booking,حجز
+Booking Holds the Car For (days),مدة احتفاظ الحجز بالسيارة (أيام)
+Bought From,تم الشراء من
+Bus,حافلة
+Cancel,إلغاء
+Cancel Draft,إلغاء المسودة
+Cancel and Keep the Deposit as Credit,إلغاء مع الاحتفاظ بالعربون كرصيد دائن
+Cancel and Refund the Deposit,إلغاء مع رد العربون
+Cancelled,ملغي
+Car,السيارة
+Car Booking,حجز سيارة
+Car Cost,تكلفة السيارة
+Car Inspection Item,بند فحص السيارة
+Car Make,ماركة السيارة
+Car Model,موديل السيارة
+Car Sale,عقد بيع سيارة
+Car Sales Margin,هامش ربح مبيعات السيارات
+Car Sales Revenue Account,حساب إيرادات مبيعات السيارات
+Car Sales per Month,مبيعات السيارات شهريًا
+Car Transfer Log,سجل نقل السيارات
+Car sale {0},عقد بيع السيارة {0}
+Car {0} - sale {1},السيارة {0} - عقد البيع {1}
+Cars Inventory Account,حساب مخزون السيارات
+Cars Ready for Sale,السيارات الجاهزة للبيع
+Cars by Showroom,السيارات حسب المعرض
+Cars by Status,السيارات حسب الحالة
+Cars in Preparation,السيارات قيد التجهيز
+Cash,نقدًا
+Cash or bank account used for purchases and preparation costs unless another is chosen.,حساب النقدية أو البنك المستخدم في المشتريات وتكاليف التجهيز ما لم يتم اختيار حساب آخر.
+"Cash, bank, or the payable account of the seller",النقدية أو البنك أو حساب الدائنين الخاص بالبائع
+Chassis,الشاسيه
+Chassis Number (VIN),رقم الشاسيه (VIN)
+Check,شيك
+Check the year,تحقق من السنة
+Choose how the deposit was paid,اختر طريقة دفع العربون
+City,المدينة
+Cleaning,التنظيف
+Color,اللون
+Commission,عمولة
+Company,الشركة
+Condition,الحالة
+Confirm the Sale,تأكيد البيع
+Confirmed,مؤكد
+Contact Person,الشخص المسؤول
+Converted,تم التحويل
+Cost Center,مركز التكلفة
+Cost and Price,التكلفة والسعر
+Cost of Cars Sold Account,حساب تكلفة السيارات المباعة
+Cost of Sale Entry,قيد تكلفة البيع
+Cost of car {0} sold ({1}),تكلفة السيارة {0} المباعة ({1})
+Coupe,كوبيه
+Create the invoice and mark the car as sold?,هل تريد إنشاء الفاتورة وتحديد السيارة كمباعة؟
+Created on install. Monthly drafts of Additional Salary use it.,يتم إنشاؤه عند التثبيت. تستخدمه المسودات الشهرية للراتب الإضافي.
+Crossover,كروس أوفر
+Customer,العميل
+Date,التاريخ
+Days Late,أيام التأخير
+Days in Stock,أيام في المخزون
+Default Account Money Is Paid From,الحساب الافتراضي للدفع منه
+Default Markup on Installments (%),هامش الربح الافتراضي على الأقساط (%)
+Default Number of Installments,عدد الأقساط الافتراضي
+Deliver the Car,تسليم السيارة
+Delivered,تم التسليم
+Deposit,عربون
+Deposit Paid By,العربون مدفوع بواسطة
+Deposit Payment Entry,قيد دفع العربون
+Deposit for car {0},عربون السيارة {0}
+Deposit refund for car {0},رد عربون السيارة {0}
+Description,الوصف
+Diesel,ديزل
+Discount,خصم
+Down Payment,دفعة مقدمة
+Draft,مسودة
+Draft Sales,مبيعات مسودة
+Due Date,تاريخ الاستحقاق
+Due Until,مستحق حتى
+Electric,كهربائي
+Engine (cc),المحرك (سي سي)
+Enter the purchase price first,أدخل سعر الشراء أولًا
+"Every purchase, cost and sale of this showroom is posted to it, so each showroom has its own profit.",يتم ترحيل كل عملية شراء وتكلفة وبيع في هذا المعرض إليه، فيكون لكل معرض ربحه الخاص.
+Expected Margin,هامش الربح المتوقع
+Expired,منتهي
+Extras,إضافات
+"Extras (plates, papers, accessories)",إضافات (لوحات، أوراق، إكسسوارات)
+Extras Revenue Account,حساب إيرادات الإضافات
+Fee the Bank Kept,الرسوم التي خصمها البنك
+Fees the bank or finance company keeps from what it pays.,الرسوم التي يخصمها البنك أو شركة التمويل من المبلغ الذي يدفعه.
+Financed Amount,المبلغ الممول
+Financier Expected to Pay On,التاريخ المتوقع لسداد جهة التمويل
+Financier Fees Account,حساب رسوم جهة التمويل
+Financing,التمويل
+Financing Company,جهة تمويل
+Financing Income Account,حساب إيرادات التمويل
+Finish the inspection checklist first,أكمل قائمة الفحص أولًا
+First Installment Date,تاريخ القسط الأول
+Free the car and pay the deposit back?,هل تريد تحرير السيارة ورد العربون؟
+Free the car; the deposit stays with the customer as an advance?,هل تريد تحرير السيارة مع بقاء العربون لدى العميل كدفعة مقدمة؟
+From,من
+Fuel,الوقود
+Hatchback,هاتشباك
+Holds the Car Until,يحتفظ بالسيارة حتى
+Home,الرئيسية
+How the Customer Pays,طريقة دفع العميل
+Hybrid,هجين
+In Preparation,قيد التجهيز
+Inspection,فحص
+Inspection Checklist,قائمة الفحص
+Installment,قسط
+Installment Markup,هامش ربح الأقساط
+Installment markup,هامش ربح الأقساط
+Installments Due,الأقساط المستحقة
+Insurance Expiry,انتهاء التأمين
+Interested,مهتم
+Invoice,فاتورة
+Invoice Total,إجمالي الفاتورة
+Journal Entry,قيد يومية
+Lending Loan,قرض (وحدة الإقراض)
+License Expiry,انتهاء الرخصة
+Loan,قرض
+Loan Application,طلب قرض
+Loan Clearing Account,حساب تسوية القرض
+Loan Paid Out: Settle the Invoice,تم صرف القرض: تسوية الفاتورة
+Loan Product (Lending),منتج القرض (الإقراض)
+Loan {0} - car sale {1},القرض {0} - عقد بيع السيارة {1}
+Lowest Price a Salesman May Accept,أقل سعر يجوز لمندوب المبيعات قبوله
+Make,الماركة
+Manager,المدير
+Manual,يدوي
+Margin,هامش الربح
+Mark Ready for Sale,تحديد كجاهزة للبيع
+Markup on the Financed Amount (%),هامش الربح على المبلغ الممول (%)
+Mileage (km),عداد المسافة (كم)
+Mode of Payment,طريقة الدفع
+Mode of Payment {0} has no account for the company,طريقة الدفع {0} ليس لها حساب للشركة
+Model,الموديل
+Money,المال
+More,المزيد
+Name,الاسم
+Name (when not yet a customer),الاسم (إذا لم يكن عميلًا بعد)
+Name of the loan product used for loan-financed sales. Leave empty if the Lending module is not used.,اسم منتج القرض المستخدم في المبيعات الممولة بقرض. اتركه فارغًا إذا لم تُستخدم وحدة الإقراض.
+Natural Gas,غاز طبيعي
+Needs Work,تحتاج إلى إصلاح
+New,جديد
+Not Checked,لم يتم الفحص
+Not Interested,غير مهتم
+Note,ملاحظة
+Notes,ملاحظات
+Number of Installments,عدد الأقساط
+OK,سليم
+Open Invoice,فتح الفاتورة
+Open Loan Application,فتح طلب القرض
+Open Sale,فتح عقد البيع
+Other,أخرى
+Outcome,النتيجة
+Paid From,مدفوع من
+Paint,الدهان
+Papers,الأوراق
+Papers and Licensing,الأوراق والترخيص
+Parts,قطع الغيار
+Payment,الدفع
+Petrol,بنزين
+Phone,الهاتف
+Photo,صورة
+Pickup,بيك أب
+Plate Number,رقم اللوحة
+"Plates, papers, accessories. Empty: the car sales account.",لوحات، أوراق، إكسسوارات. إذا ترك فارغًا: حساب مبيعات السيارات.
+Preparation Costs,تكاليف التجهيز
+Price,السعر
+Purchase,شراء
+Purchase Date,تاريخ الشراء
+Purchase Entry,قيد الشراء
+Purchase Price,سعر الشراء
+Purchase of car {0} {1},شراء السيارة {0} {1}
+Ready for Sale,جاهزة للبيع
+Reason for a Price Below the Minimum,سبب السعر الأقل من الحد الأدنى
+Receive Payment,استلام الدفعة
+Receive from the Bank,الاستلام من البنك
+Record Purchase,تسجيل الشراء
+Reference,المرجع
+Repair,إصلاح
+Reserved,محجوزة
+Reserved Cars,السيارات المحجوزة
+Result,النتيجة
+SUV,إس يو في
+Salary Component for Commission,مكون الراتب للعمولة
+Sale,بيع
+Sale Extra,إضافة على البيع
+Sale of car {0} {1} ({2}),بيع السيارة {0} {1} ({2})
+Sales Awaiting Delivery,مبيعات بانتظار التسليم
+Sales Invoice,فاتورة مبيعات
+Sales This Month,مبيعات هذا الشهر
+Sales by Payment Method,المبيعات حسب طريقة الدفع
+Salesman,مندوب مبيعات
+Salesman Commission,عمولة مندوب المبيعات
+Salesman Commission (% of the margin),عمولة مندوب المبيعات (% من هامش الربح)
+Save,حفظ
+Scheduled,مجدولة
+Sedan,سيدان
+Sell,بيع
+Sell the Car,بيع السيارة
+Seller ID Number,رقم هوية البائع
+Seller Phone,هاتف البائع
+Set the asking price first,حدد السعر المطلوب أولًا
+Set {0} in Showroom Settings first,حدد {0} في إعدادات المعرض أولًا
+Settle from the Loan,التسوية من القرض
+Showroom,المعرض
+Showroom Installments,أقساط المعرض
+Showroom Settings,إعدادات المعرض
+Showroom Stock,مخزون المعرض
+Showroom Transfers,تحويلات المعارض
+Sold,مباعة
+Status,الحالة
+Take this car off sale?,هل تريد سحب هذه السيارة من البيع؟
+Test Drive,تجربة قيادة
+Test Drives Today,تجارب القيادة اليوم
+The Car,السيارة
+The amount must be above zero,يجب أن يكون المبلغ أكبر من صفر
+The amount must be above zero and not more than the {0} still due,يجب أن يكون المبلغ أكبر من صفر وألا يزيد على {0} المتبقي مستحقًا
+The booking date has passed,انتهى تاريخ الحجز
+The booking is {0},الحجز {0}
+The car is already in this showroom,السيارة موجودة بالفعل في هذا المعرض
+The car is {0},السيارة {0}
+The car is {0}: only a car that is ready for sale can be booked,السيارة {0}: لا يمكن حجز إلا السيارة الجاهزة للبيع
+"The dealer, importer, or the person who sold the used car.",التاجر أو المستورد أو الشخص الذي باع السيارة المستعملة.
+The down payment covers the whole price: choose Cash,الدفعة المقدمة تغطي السعر بالكامل: اختر نقدًا
+The loan once approved in the Lending module.,القرض بعد اعتماده في وحدة الإقراض.
+The lowest acceptable price is above the asking price,أقل سعر مقبول أعلى من السعر المطلوب
+The markup charged on the showroom's own installments.,هامش الربح المحتسب على أقساط المعرض الخاصة.
+The model belongs to another make,الموديل يتبع ماركة أخرى
+The price is below the lowest acceptable price of {0}. Write the reason (a manager approves it).,السعر أقل من أقل سعر مقبول وهو {0}. اكتب السبب (يعتمده المدير).
+The sale is confirmed. Set the Loan Product in Showroom Settings (and install Lending) to create the loan application.,تم تأكيد البيع. حدد منتج القرض في إعدادات المعرض (وثبّت وحدة الإقراض) لإنشاء طلب القرض.
+The sale is {0},عقد البيع {0}
+This sale is not financed by a bank,هذا البيع غير ممول من بنك
+To,إلى
+Total Cost,إجمالي التكلفة
+Total in Cash,الإجمالي نقدًا
+Totals,الإجماليات
+Transfer,تحويل
+Transfer of car {0},تحويل السيارة {0}
+Transfer to Another Showroom,تحويل إلى معرض آخر
+Transfers,التحويلات
+Transmission,ناقل الحركة
+Transport,النقل
+Type,النوع
+Used,مستعملة
+Usual Fee (%),الرسوم المعتادة (%)
+VAT,ضريبة القيمة المضافة
+VAT Account,حساب ضريبة القيمة المضافة
+VAT on Cars (%),ضريبة القيمة المضافة على السيارات (%)
+Van,فان
+When,متى
+Withdraw from Sale,سحب من البيع
+Withdrawn,مسحوبة
+Year,السنة
+{0} - car sale {1},{0} - عقد بيع السيارة {1}
+{0} for car {1},{0} للسيارة {1}

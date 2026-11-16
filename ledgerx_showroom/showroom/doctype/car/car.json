@@ -1,0 +1,377 @@
+{
+ "actions": [],
+ "creation": "2026-11-16 08:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "vin",
+  "plate_no",
+  "condition",
+  "status",
+  "showroom",
+  "sb_car",
+  "make",
+  "model",
+  "year",
+  "color",
+  "cb1",
+  "mileage",
+  "fuel",
+  "transmission",
+  "engine_cc",
+  "image",
+  "sb_buy",
+  "purchase_date",
+  "purchase_price",
+  "purchase_paid_from",
+  "purchase_entry",
+  "cb2",
+  "seller_name",
+  "seller_id",
+  "seller_phone",
+  "sb_cost",
+  "costs",
+  "cb3",
+  "total_cost",
+  "asking_price",
+  "minimum_price",
+  "expected_margin",
+  "sb_insp",
+  "inspection",
+  "sb_docs",
+  "license_expiry",
+  "insurance_expiry",
+  "cb4",
+  "notes",
+  "sb_moves",
+  "transfers",
+  "sb_sale",
+  "sale",
+  "booking"
+ ],
+ "fields": [
+  {
+   "fieldname": "vin",
+   "fieldtype": "Data",
+   "label": "Chassis Number (VIN)",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "plate_no",
+   "fieldtype": "Data",
+   "label": "Plate Number",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "condition",
+   "fieldtype": "Select",
+   "label": "Condition",
+   "options": "New\nUsed",
+   "default": "Used",
+   "reqd": 1,
+   "in_standard_filter": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nIn Preparation\nReady for Sale\nReserved\nSold\nDelivered\nWithdrawn",
+   "default": "Draft",
+   "read_only": 1,
+   "in_standard_filter": 1,
+   "in_list_view": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "showroom",
+   "fieldtype": "Link",
+   "label": "Showroom",
+   "options": "Showroom",
+   "reqd": 1,
+   "in_standard_filter": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sb_car",
+   "fieldtype": "Section Break",
+   "label": "The Car"
+  },
+  {
+   "fieldname": "make",
+   "fieldtype": "Link",
+   "label": "Make",
+   "options": "Car Make",
+   "reqd": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Link",
+   "label": "Model",
+   "options": "Car Model",
+   "reqd": 1
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Int",
+   "label": "Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Color"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mileage",
+   "fieldtype": "Int",
+   "label": "Mileage (km)",
+   "default": 0
+  },
+  {
+   "fieldname": "fuel",
+   "fieldtype": "Select",
+   "label": "Fuel",
+   "options": "\nPetrol\nDiesel\nHybrid\nElectric\nNatural Gas"
+  },
+  {
+   "fieldname": "transmission",
+   "fieldtype": "Select",
+   "label": "Transmission",
+   "options": "\nAutomatic\nManual"
+  },
+  {
+   "fieldname": "engine_cc",
+   "fieldtype": "Int",
+   "label": "Engine (cc)"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Photo"
+  },
+  {
+   "fieldname": "sb_buy",
+   "fieldtype": "Section Break",
+   "label": "Purchase"
+  },
+  {
+   "fieldname": "purchase_date",
+   "fieldtype": "Date",
+   "label": "Purchase Date"
+  },
+  {
+   "fieldname": "purchase_price",
+   "fieldtype": "Currency",
+   "label": "Purchase Price"
+  },
+  {
+   "fieldname": "purchase_paid_from",
+   "fieldtype": "Link",
+   "label": "Paid From",
+   "options": "Account"
+  },
+  {
+   "fieldname": "purchase_entry",
+   "fieldtype": "Link",
+   "label": "Purchase Entry",
+   "options": "Journal Entry",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "seller_name",
+   "fieldtype": "Data",
+   "label": "Bought From",
+   "description": "The dealer, importer, or the person who sold the used car."
+  },
+  {
+   "fieldname": "seller_id",
+   "fieldtype": "Data",
+   "label": "Seller ID Number"
+  },
+  {
+   "fieldname": "seller_phone",
+   "fieldtype": "Data",
+   "label": "Seller Phone"
+  },
+  {
+   "fieldname": "sb_cost",
+   "fieldtype": "Section Break",
+   "label": "Cost and Price"
+  },
+  {
+   "fieldname": "costs",
+   "fieldtype": "Table",
+   "label": "Preparation Costs",
+   "options": "Car Cost"
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "asking_price",
+   "fieldtype": "Currency",
+   "label": "Asking Price",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "minimum_price",
+   "fieldtype": "Currency",
+   "label": "Lowest Price a Salesman May Accept"
+  },
+  {
+   "fieldname": "expected_margin",
+   "fieldtype": "Currency",
+   "label": "Expected Margin",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_insp",
+   "fieldtype": "Section Break",
+   "label": "Inspection"
+  },
+  {
+   "fieldname": "inspection",
+   "fieldtype": "Table",
+   "label": "Inspection Checklist",
+   "options": "Car Inspection Item"
+  },
+  {
+   "fieldname": "sb_docs",
+   "fieldtype": "Section Break",
+   "label": "Papers"
+  },
+  {
+   "fieldname": "license_expiry",
+   "fieldtype": "Date",
+   "label": "License Expiry"
+  },
+  {
+   "fieldname": "insurance_expiry",
+   "fieldtype": "Date",
+   "label": "Insurance Expiry"
+  },
+  {
+   "fieldname": "cb4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "sb_moves",
+   "fieldtype": "Section Break",
+   "label": "Showroom Transfers"
+  },
+  {
+   "fieldname": "transfers",
+   "fieldtype": "Table",
+   "label": "Transfers",
+   "options": "Car Transfer Log",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_sale",
+   "fieldtype": "Section Break",
+   "label": "Sale"
+  },
+  {
+   "fieldname": "sale",
+   "fieldtype": "Link",
+   "label": "Car Sale",
+   "options": "Car Sale",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "booking",
+   "fieldtype": "Link",
+   "label": "Car Booking",
+   "options": "Car Booking",
+   "read_only": 1,
+   "no_copy": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-16 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Showroom",
+ "name": "Car",
+ "owner": "Administrator",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "permissions": [
+  {
+   "role": "Showroom Manager",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "Showroom Salesman",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  },
+  {
+   "role": "Showroom Technician",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "write": 1
+  },
+  {
+   "role": "Showroom Accountant",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  }
+ ],
+ "autoname": "format:CAR-{#####}",
+ "title_field": "vin",
+ "icon": "fa fa-car",
+ "track_changes": 1,
+ "show_title_field_in_link": 1,
+ "search_fields": "vin,plate_no,make,model",
+ "allow_rename": 0
+}

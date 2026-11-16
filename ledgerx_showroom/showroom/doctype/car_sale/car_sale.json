@@ -1,0 +1,371 @@
+{
+ "actions": [],
+ "creation": "2026-11-16 08:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "car",
+  "showroom",
+  "sale_date",
+  "cb1",
+  "status",
+  "salesman",
+  "booking",
+  "sb_price",
+  "price",
+  "discount",
+  "price_reason",
+  "below_minimum",
+  "cb2",
+  "extras",
+  "sb_fin",
+  "financing_type",
+  "down_payment",
+  "months",
+  "markup_pct",
+  "first_due_date",
+  "cb3",
+  "financier",
+  "financier_due_date",
+  "loan_application",
+  "loan",
+  "sb_tot",
+  "extras_total",
+  "vat",
+  "cash_total",
+  "financed_amount",
+  "cb4",
+  "surcharge",
+  "grand_total",
+  "monthly_installment",
+  "sb_acc",
+  "sales_invoice",
+  "cogs_entry",
+  "car_cost",
+  "cb5",
+  "margin",
+  "commission_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "car",
+   "fieldtype": "Link",
+   "label": "Car",
+   "options": "Car",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "showroom",
+   "fieldtype": "Link",
+   "label": "Showroom",
+   "options": "Showroom",
+   "fetch_from": "car.showroom",
+   "read_only": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "sale_date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "default": "Today",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nConfirmed\nDelivered\nCancelled",
+   "default": "Draft",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "salesman",
+   "fieldtype": "Link",
+   "label": "Salesman",
+   "options": "Employee",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "booking",
+   "fieldtype": "Link",
+   "label": "Booking",
+   "options": "Car Booking",
+   "description": "A booking's deposit is applied to the invoice."
+  },
+  {
+   "fieldname": "sb_price",
+   "fieldtype": "Section Break",
+   "label": "Price"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "Agreed Price",
+   "reqd": 1
+  },
+  {
+   "fieldname": "discount",
+   "fieldtype": "Currency",
+   "label": "Discount"
+  },
+  {
+   "fieldname": "price_reason",
+   "fieldtype": "Small Text",
+   "label": "Reason for a Price Below the Minimum",
+   "depends_on": "eval:doc.below_minimum"
+  },
+  {
+   "fieldname": "below_minimum",
+   "fieldtype": "Check",
+   "label": "Below the Minimum",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "extras",
+   "fieldtype": "Table",
+   "label": "Extras (plates, papers, accessories)",
+   "options": "Sale Extra"
+  },
+  {
+   "fieldname": "sb_fin",
+   "fieldtype": "Section Break",
+   "label": "Payment"
+  },
+  {
+   "fieldname": "financing_type",
+   "fieldtype": "Select",
+   "label": "How the Customer Pays",
+   "options": "Cash\nShowroom Installments\nBank Financing\nLending Loan",
+   "default": "Cash",
+   "reqd": 1
+  },
+  {
+   "fieldname": "down_payment",
+   "fieldtype": "Currency",
+   "label": "Down Payment",
+   "depends_on": "eval:doc.financing_type!='Cash'"
+  },
+  {
+   "fieldname": "months",
+   "fieldtype": "Int",
+   "label": "Number of Installments",
+   "depends_on": "eval:doc.financing_type=='Showroom Installments'"
+  },
+  {
+   "fieldname": "markup_pct",
+   "fieldtype": "Percent",
+   "label": "Markup on the Financed Amount (%)",
+   "depends_on": "eval:doc.financing_type=='Showroom Installments'"
+  },
+  {
+   "fieldname": "first_due_date",
+   "fieldtype": "Date",
+   "label": "First Installment Date",
+   "depends_on": "eval:doc.financing_type=='Showroom Installments'"
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "financier",
+   "fieldtype": "Link",
+   "label": "Bank or Finance Company",
+   "options": "Financing Company",
+   "depends_on": "eval:doc.financing_type=='Bank Financing'"
+  },
+  {
+   "fieldname": "financier_due_date",
+   "fieldtype": "Date",
+   "label": "Financier Expected to Pay On",
+   "depends_on": "eval:['Bank Financing','Lending Loan'].includes(doc.financing_type)"
+  },
+  {
+   "fieldname": "loan_application",
+   "fieldtype": "Data",
+   "label": "Loan Application",
+   "read_only": 1,
+   "depends_on": "eval:doc.financing_type=='Lending Loan'"
+  },
+  {
+   "fieldname": "loan",
+   "fieldtype": "Data",
+   "label": "Loan",
+   "depends_on": "eval:doc.financing_type=='Lending Loan'",
+   "description": "The loan once approved in the Lending module."
+  },
+  {
+   "fieldname": "sb_tot",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "fieldname": "extras_total",
+   "fieldtype": "Currency",
+   "label": "Extras",
+   "read_only": 1
+  },
+  {
+   "fieldname": "vat",
+   "fieldtype": "Currency",
+   "label": "VAT",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cash_total",
+   "fieldtype": "Currency",
+   "label": "Total in Cash",
+   "read_only": 1
+  },
+  {
+   "fieldname": "financed_amount",
+   "fieldtype": "Currency",
+   "label": "Financed Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "surcharge",
+   "fieldtype": "Currency",
+   "label": "Installment Markup",
+   "read_only": 1
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "label": "Invoice Total",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "monthly_installment",
+   "fieldtype": "Currency",
+   "label": "Installment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_acc",
+   "fieldtype": "Section Break",
+   "label": "Accounting and Commission"
+  },
+  {
+   "fieldname": "sales_invoice",
+   "fieldtype": "Link",
+   "label": "Sales Invoice",
+   "options": "Sales Invoice",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "cogs_entry",
+   "fieldtype": "Link",
+   "label": "Cost of Sale Entry",
+   "options": "Journal Entry",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "car_cost",
+   "fieldtype": "Currency",
+   "label": "Car Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "margin",
+   "fieldtype": "Currency",
+   "label": "Margin",
+   "read_only": 1
+  },
+  {
+   "fieldname": "commission_amount",
+   "fieldtype": "Currency",
+   "label": "Salesman Commission",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-16 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Showroom",
+ "name": "Car Sale",
+ "owner": "Administrator",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "permissions": [
+  {
+   "role": "Showroom Manager",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "Showroom Salesman",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "write": 1,
+   "create": 1
+  },
+  {
+   "role": "Showroom Accountant",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "write": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  }
+ ],
+ "autoname": "CSL-.YYYY.-.#####",
+ "title_field": "customer",
+ "icon": "fa fa-handshake-o",
+ "track_changes": 1,
+ "allow_rename": 0
+}

@@ -1,0 +1,150 @@
+{
+ "actions": [],
+ "creation": "2026-11-16 08:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "car",
+  "customer",
+  "showroom",
+  "status",
+  "cb1",
+  "agreed_price",
+  "deposit",
+  "mode_of_payment",
+  "valid_until",
+  "deposit_entry",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "car",
+   "fieldtype": "Link",
+   "label": "Car",
+   "options": "Car",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "showroom",
+   "fieldtype": "Link",
+   "label": "Showroom",
+   "options": "Showroom",
+   "fetch_from": "car.showroom",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nConverted\nCancelled\nExpired",
+   "default": "Active",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "agreed_price",
+   "fieldtype": "Currency",
+   "label": "Agreed Price"
+  },
+  {
+   "fieldname": "deposit",
+   "fieldtype": "Currency",
+   "label": "Deposit"
+  },
+  {
+   "fieldname": "mode_of_payment",
+   "fieldtype": "Link",
+   "label": "Deposit Paid By",
+   "options": "Mode of Payment",
+   "depends_on": "deposit"
+  },
+  {
+   "fieldname": "valid_until",
+   "fieldtype": "Date",
+   "label": "Holds the Car Until",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "deposit_entry",
+   "fieldtype": "Link",
+   "label": "Deposit Payment Entry",
+   "options": "Payment Entry",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-16 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Showroom",
+ "name": "Car Booking",
+ "owner": "Administrator",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "permissions": [
+  {
+   "role": "Showroom Manager",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "Showroom Salesman",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "write": 1,
+   "create": 1
+  },
+  {
+   "role": "Showroom Accountant",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  }
+ ],
+ "autoname": "BKG-.YYYY.-.#####",
+ "title_field": "customer",
+ "icon": "fa fa-bookmark",
+ "track_changes": 1,
+ "allow_rename": 0
+}
