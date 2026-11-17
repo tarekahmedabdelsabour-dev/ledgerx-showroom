@@ -110,6 +110,21 @@ doctype("Financing Company", [
 	f("notes", "Small Text", "Notes"),
 ], autoname="field:company_name", icon="fa fa-university", perms=perms((MGR, "all"), (SAL, "r"), (ACC, "rw")))
 
+doctype("Financing Plan", [
+	f("plan_name", "Data", "Plan Name", reqd=1, unique=1, in_list_view=1, description="For example: Own installments 24 months, Banque Misr 60 months, CIB 48 months."),
+	f("financing_type", "Select", "Type", options="Showroom Installments\nBank Financing\nLending Loan", default="Showroom Installments", reqd=1, in_list_view=1,
+		description="Showroom Installments: the showroom collects. Bank Financing: a bank or finance company pays the showroom. Lending Loan: a loan in the Lending module."),
+	f("active", "Check", "Active", default=1),
+	col("cb1"),
+	f("financier", "Link", "Bank or Finance Company", options="Financing Company", depends_on="eval:doc.financing_type=='Bank Financing'", in_list_view=1),
+	f("loan_product", "Data", "Loan Product (Lending)", depends_on="eval:doc.financing_type=='Lending Loan'", description="Leave empty to use the one in Showroom Settings."),
+	sec("sb_terms", "Terms"),
+	f("months", "Int", "Number of Installments", default=12, in_list_view=1),
+	f("min_down_pct", "Percent", "Minimum Down Payment (%)", default=0, in_list_view=1),
+	f("markup_pct", "Percent", "Markup on the Financed Amount (%)", default=0, depends_on="eval:doc.financing_type=='Showroom Installments'", description="Charged by the showroom itself."),
+	f("notes", "Small Text", "Notes"),
+], autoname="field:plan_name", icon="fa fa-percent", perms=perms((MGR, "all"), (SAL, "r"), (ACC, "rw")))
+
 # ---------------------------------------------------------------- the car
 doctype("Car Cost", [
 	f("cost_date", "Date", "Date", reqd=1, in_list_view=1, default="Today"),
@@ -218,6 +233,7 @@ doctype("Car Sale", [
 	col("cb2"),
 	f("extras", "Table", "Extras (plates, papers, accessories)", options="Sale Extra"),
 	sec("sb_fin", "Payment"),
+	f("financing_plan", "Link", "Financing Plan", options="Financing Plan", description="Optional: picks the type, bank, installments and down payment for you."),
 	f("financing_type", "Select", "How the Customer Pays", options="Cash\nShowroom Installments\nBank Financing\nLending Loan", default="Cash", reqd=1),
 	f("down_payment", "Currency", "Down Payment", depends_on="eval:doc.financing_type!='Cash'"),
 	f("months", "Int", "Number of Installments", depends_on="eval:doc.financing_type=='Showroom Installments'"),
@@ -228,6 +244,8 @@ doctype("Car Sale", [
 	f("financier_due_date", "Date", "Financier Expected to Pay On", depends_on="eval:['Bank Financing','Lending Loan'].includes(doc.financing_type)"),
 	f("loan_application", "Data", "Loan Application", read_only=1, depends_on="eval:doc.financing_type=='Lending Loan'"),
 	f("loan", "Data", "Loan", depends_on="eval:doc.financing_type=='Lending Loan'", description="The loan once approved in the Lending module."),
+	sec("sb_sched", "Installment Schedule"),
+	f("schedule_html", "HTML", "Schedule"),
 	sec("sb_tot", "Totals"),
 	f("extras_total", "Currency", "Extras", read_only=1),
 	f("vat", "Currency", "VAT", read_only=1),

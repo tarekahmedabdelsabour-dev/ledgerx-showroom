@@ -15,7 +15,8 @@ Then restart the server.
 ## First setup (Showroom workspace)
 1. **Showroom Settings:** company, the accounts (cars inventory, cost of cars sold, car sales revenue, extras revenue, financing income, VAT, financier fees), VAT rate, default markup and number of installments, salesman commission, and the Salary Component used for commission.
 2. **Showroom:** one record per branch (each gets its own cost center and warehouse).
-3. **Car Make / Car Model**, then **Financing Company** for banks or finance houses.
+3. **Car Make / Car Model**, then **Financing Company** for banks or finance houses (Banque Misr, CIB...).
+   Then **Financing Plan**: one per offer, for example "Own installments 24 months" (months, markup %, minimum down payment %), "Banque Misr 60 months" (bank, down payment %), or "Lending loan" (loan product). Choosing a plan on a Car Sale fills the type, bank, installments and down payment.
 4. Receive a car with **Car > Acquire** (purchase), add preparation costs, run the inspection checklist, then **Mark Ready**.
 5. Sell with **Car Sale**. Pick how the customer pays:
    - **Cash:** one payment.

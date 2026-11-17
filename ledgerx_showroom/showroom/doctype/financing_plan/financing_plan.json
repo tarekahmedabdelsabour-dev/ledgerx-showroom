@@ -1,0 +1,146 @@
+{
+ "actions": [],
+ "creation": "2026-11-16 08:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "plan_name",
+  "financing_type",
+  "active",
+  "cb1",
+  "financier",
+  "loan_product",
+  "sb_terms",
+  "months",
+  "min_down_pct",
+  "markup_pct",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "plan_name",
+   "fieldtype": "Data",
+   "label": "Plan Name",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1,
+   "description": "For example: Own installments 24 months, Banque Misr 60 months, CIB 48 months."
+  },
+  {
+   "fieldname": "financing_type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Showroom Installments\nBank Financing\nLending Loan",
+   "default": "Showroom Installments",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "Showroom Installments: the showroom collects. Bank Financing: a bank or finance company pays the showroom. Lending Loan: a loan in the Lending module."
+  },
+  {
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active",
+   "default": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "financier",
+   "fieldtype": "Link",
+   "label": "Bank or Finance Company",
+   "options": "Financing Company",
+   "depends_on": "eval:doc.financing_type=='Bank Financing'",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "loan_product",
+   "fieldtype": "Data",
+   "label": "Loan Product (Lending)",
+   "depends_on": "eval:doc.financing_type=='Lending Loan'",
+   "description": "Leave empty to use the one in Showroom Settings."
+  },
+  {
+   "fieldname": "sb_terms",
+   "fieldtype": "Section Break",
+   "label": "Terms"
+  },
+  {
+   "fieldname": "months",
+   "fieldtype": "Int",
+   "label": "Number of Installments",
+   "default": 12,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "min_down_pct",
+   "fieldtype": "Percent",
+   "label": "Minimum Down Payment (%)",
+   "default": 0,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "markup_pct",
+   "fieldtype": "Percent",
+   "label": "Markup on the Financed Amount (%)",
+   "default": 0,
+   "depends_on": "eval:doc.financing_type=='Showroom Installments'",
+   "description": "Charged by the showroom itself."
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-16 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Showroom",
+ "name": "Financing Plan",
+ "owner": "Administrator",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "permissions": [
+  {
+   "role": "Showroom Manager",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "Showroom Salesman",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  },
+  {
+   "role": "Showroom Accountant",
+   "read": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1,
+   "write": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "print": 1,
+   "export": 1
+  }
+ ],
+ "autoname": "field:plan_name",
+ "icon": "fa fa-percent",
+ "allow_rename": 0
+}

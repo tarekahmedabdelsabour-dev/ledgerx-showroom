@@ -281,3 +281,21 @@ Related,مرتبط
 Daily Work,العمل اليومي
 Reports,التقارير
 Setup,الإعداد
+Financing Plan,خطة التمويل
+Financing Plans,خطط التمويل
+Plan Name,اسم الخطة
+Terms,الشروط
+Minimum Down Payment (%),الحد الأدنى للدفعة المقدمة (%)
+Installment Schedule,جدول الأقساط
+Schedule,الجدول
+Leave empty to use the one in Showroom Settings.,اتركه فارغًا لاستخدام المنتج المحدد في إعدادات المعرض.
+"Optional: picks the type, bank, installments and down payment for you.",اختياري: يحدد لك النوع والبنك والأقساط والدفعة المقدمة.
+"For example: Own installments 24 months, Banque Misr 60 months, CIB 48 months.",مثال: تقسيط المعرض 24 شهرًا، بنك مصر 60 شهرًا، البنك التجاري الدولي 48 شهرًا.
+Showroom Installments: the showroom collects. Bank Financing: a bank or finance company pays the showroom. Lending Loan: a loan in the Lending module.,تقسيط المعرض: المعرض هو من يحصّل. تمويل بنكي: بنك أو جهة تمويل تدفع للمعرض. قرض: قرض في مديول القروض.
+Charged by the showroom itself.,يحصّلها المعرض بنفسه.
+The financing plan {0} is not active,خطة التمويل {0} غير نشطة
+The plan needs a down payment of at least {0}%,الخطة تتطلب دفعة مقدمة لا تقل عن {0}%
+The schedule appears once the sale is confirmed.,يظهر الجدول بعد تأكيد البيع.
+Late,متأخر
+Paid,المدفوع
+Still Due,المتبقي

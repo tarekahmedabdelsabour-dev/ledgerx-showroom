@@ -20,6 +20,7 @@
   "cb2",
   "extras",
   "sb_fin",
+  "financing_plan",
   "financing_type",
   "down_payment",
   "months",
@@ -30,6 +31,8 @@
   "financier_due_date",
   "loan_application",
   "loan",
+  "sb_sched",
+  "schedule_html",
   "sb_tot",
   "extras_total",
   "vat",
@@ -157,6 +160,13 @@
    "label": "Payment"
   },
   {
+   "fieldname": "financing_plan",
+   "fieldtype": "Link",
+   "label": "Financing Plan",
+   "options": "Financing Plan",
+   "description": "Optional: picks the type, bank, installments and down payment for you."
+  },
+  {
    "fieldname": "financing_type",
    "fieldtype": "Select",
    "label": "How the Customer Pays",
@@ -218,6 +228,16 @@
    "label": "Loan",
    "depends_on": "eval:doc.financing_type=='Lending Loan'",
    "description": "The loan once approved in the Lending module."
+  },
+  {
+   "fieldname": "sb_sched",
+   "fieldtype": "Section Break",
+   "label": "Installment Schedule"
+  },
+  {
+   "fieldname": "schedule_html",
+   "fieldtype": "HTML",
+   "label": "Schedule"
   },
   {
    "fieldname": "sb_tot",

@@ -4,7 +4,7 @@ import os
 import uuid
 
 BASE = os.path.join(os.path.dirname(__file__), "..", "ledgerx_showroom")
-TS = "2026-11-16 22:30:00.000000"  # raise this whenever the workspace changes: migrate only re-reads a file that is newer than the saved one
+TS = "2026-11-17 07:00:00.000000"  # raise this whenever the workspace changes: migrate only re-reads a file that is newer than the saved one
 CARDS = [  # (label, doctype, filters, function, fn_field)
 	("Cars Ready for Sale", "Car", [["Car", "status", "=", "Ready for Sale"]], "Count", None),
 	("Cars in Preparation", "Car", [["Car", "status", "=", "In Preparation"]], "Count", None),
@@ -24,20 +24,19 @@ CHARTS = [  # (name, doctype, type, kind, extra)
 GROUPS = [  # (title, icon, collapsed, [(label, kind, target, icon)])
 	("Daily Work", None, 0, [
 		("Car", "DocType", "Car", "car"), ("Car Booking", "DocType", "Car Booking", "calendar-check"),
-		("Car Sale", "DocType", "Car Sale", "file-text"), ("Test Drive", "DocType", "Test Drive", "gauge")]),
+		("Car Sale", "DocType", "Car Sale", "file-text"), ("Test Drive", "DocType", "Test Drive", "gauge"), ("Installments Due", "Report", "Installments Due", "alarm-clock")]),
 	("Reports", "bar-chart-3", 0, [
-		("Showroom Stock", "Report", "Showroom Stock", "layout-list"), ("Car Sales Margin", "Report", "Car Sales Margin", "trending-up"),
-		("Installments Due", "Report", "Installments Due", "alarm-clock")]),
+		("Showroom Stock", "Report", "Showroom Stock", "layout-list"), ("Car Sales Margin", "Report", "Car Sales Margin", "trending-up")]),
 	("Setup", "settings", 1, [
 		("Showroom", "DocType", "Showroom", "store"), ("Car Make", "DocType", "Car Make", "tag"), ("Car Model", "DocType", "Car Model", "car-front"),
-		("Financing Company", "DocType", "Financing Company", "landmark"), ("Sale Extra", "DocType", "Sale Extra", "package-plus"),
+		("Financing Plan", "DocType", "Financing Plan", "percent"), ("Financing Company", "DocType", "Financing Company", "landmark"), ("Sale Extra", "DocType", "Sale Extra", "package-plus"),
 		("Showroom Settings", "DocType", "Showroom Settings", "settings")]),
 	("Related", "link-2", 1, [  # the rest of the app these documents are tied to
 		("Customer", "DocType", "Customer", "users"), ("Sales Invoice", "DocType", "Sales Invoice", "receipt"),
 		("Payment Entry", "DocType", "Payment Entry", "wallet"), ("Journal Entry", "DocType", "Journal Entry", "book-open"),
 		("Employee", "DocType", "Employee", "user-round"), ("Additional Salary", "DocType", "Additional Salary", "banknote")]),
 ]
-TOP = ["Car", "Car Booking", "Car Sale", "Test Drive"]
+TOP = ["Car Sale", "Installments Due", "Financing Plan", "Car Booking"]
 
 
 def write(path, data):
@@ -80,7 +79,13 @@ def main():
 	shortcuts, links = [], []
 	for label in TOP:
 		content.insert(1 + len(shortcuts), {"id": rid(), "type": "shortcut", "data": {"shortcut_name": label, "col": 3}})
-		shortcuts.append({"label": label, "link_to": label, "type": "DocType", "doc_view": "List"})
+		kind = "Report" if label in ("Installments Due",) else "DocType"
+		sc = {"label": label, "link_to": label, "type": kind}
+		if kind == "DocType":
+			sc["doc_view"] = "List"
+		else:
+			sc["is_query_report"] = 1
+		shortcuts.append(sc)
 	for title, _i, _c, items in GROUPS[1:]:
 		content.append({"id": rid(), "type": "card", "data": {"card_name": title, "col": 4}})
 		links.append({"type": "Card Break", "label": title, "hidden": 0, "is_query_report": 0, "link_count": len(items), "onboard": 0})

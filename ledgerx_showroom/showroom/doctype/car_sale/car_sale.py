@@ -22,6 +22,7 @@ class CarSale(Document):
 		self.below_minimum = 0 if logic.price_allowed(net, car.minimum_price) else 1
 		if self.below_minimum and not self.price_reason:
 			frappe.throw(_("The price is below the lowest acceptable price of {0}. Write the reason (a manager approves it).").format(car.minimum_price))
+		self._apply_plan(net)
 		if self.financing_type == "Showroom Installments":
 			self.months = int(self.months or s.default_months or 12)
 			if self.markup_pct in (None, ""):
@@ -32,6 +33,24 @@ class CarSale(Document):
 			frappe.throw(_("The down payment covers the whole price: choose Cash"))
 		self.extras_total, self.vat, self.cash_total = t["extras"], t["vat"], t["cash_total"]
 		self.financed_amount, self.surcharge, self.grand_total, self.monthly_installment = t["financed"], t["surcharge"], t["grand_total"], t["monthly"]
+
+	def _apply_plan(self, net):
+		"""A chosen financing plan sets the type, bank, installments and (when empty) the down payment."""
+		if not self.financing_plan:
+			return None
+		plan = frappe.get_doc("Financing Plan", self.financing_plan)
+		if not plan.active:
+			frappe.throw(_("The financing plan {0} is not active").format(plan.name))
+		self.financing_type = plan.financing_type
+		self.months = plan.months
+		self.financier = plan.financier if plan.financing_type == "Bank Financing" else None
+		if plan.financing_type == "Showroom Installments":
+			self.markup_pct = plan.markup_pct
+		if not flt(self.down_payment) and flt(plan.min_down_pct):
+			self.down_payment = round(net * flt(plan.min_down_pct) / 100, 2)
+		if net and flt(self.down_payment) < net * flt(plan.min_down_pct) / 100 - 0.005:
+			frappe.throw(_("The plan needs a down payment of at least {0}%").format(plan.min_down_pct))
+		return plan
 
 	def _need(self, *statuses):
 		if self.status not in statuses:
@@ -89,11 +108,12 @@ class CarSale(Document):
 
 	def make_loan_application(self, s, t):
 		"""A draft Loan Application in the Lending module for the financed amount; approval happens there."""
-		if not frappe.db.exists("DocType", "Loan Application") or not s.loan_product:
+		product = (frappe.db.get_value("Financing Plan", self.financing_plan, "loan_product") if self.financing_plan else None) or s.loan_product
+		if not frappe.db.exists("DocType", "Loan Application") or not product:
 			frappe.msgprint(_("The sale is confirmed. Set the Loan Product in Showroom Settings (and install Lending) to create the loan application."))
 			return
 		app = frappe.get_doc({"doctype": "Loan Application", "applicant_type": "Customer", "applicant": self.customer, "company": s.company,
-			"loan_product": s.loan_product, "loan_amount": t["financed"], "repayment_method": "Repay Over Number of Periods",
+			"loan_product": product, "loan_amount": t["financed"], "repayment_method": "Repay Over Number of Periods",
 			"repayment_periods": int(self.months or s.default_months or 12), "posting_date": nowdate(),
 			"description": _("Car {0} - sale {1}").format(self.car, self.name)})
 		app.insert(ignore_permissions=True)

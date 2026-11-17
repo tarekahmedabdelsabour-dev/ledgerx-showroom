@@ -9,6 +9,31 @@ frappe.ui.form.on("Car Sale", {
 			if (r.message.booking && !frm.doc.booking) frm.set_value("booking", r.message.booking);
 		});
 	},
+	financing_plan(frm) {
+		if (!frm.doc.financing_plan) return;
+		frappe.db.get_doc("Financing Plan", frm.doc.financing_plan).then((p) => {
+			const net = (frm.doc.price || 0) - (frm.doc.discount || 0);
+			frm.set_value({ financing_type: p.financing_type, months: p.months,
+				financier: p.financing_type === "Bank Financing" ? p.financier : "",
+				markup_pct: p.financing_type === "Showroom Installments" ? p.markup_pct : 0 });
+			if (!frm.doc.down_payment && p.min_down_pct) frm.set_value("down_payment", flt(net * p.min_down_pct / 100, 2));
+		});
+	},
+	show_schedule(frm) {
+		const w = frm.fields_dict.schedule_html && frm.fields_dict.schedule_html.$wrapper;
+		if (!w) return;
+		if (!frm.doc.sales_invoice) { w.html(`<p class="text-muted">${__("The schedule appears once the sale is confirmed.")}</p>`); return; }
+		frappe.db.get_doc("Sales Invoice", frm.doc.sales_invoice).then((inv) => {
+			const today = frappe.datetime.get_today();
+			const rows = (inv.payment_schedule || []).map((r) => {
+				const due = flt(r.payment_amount) - flt(r.paid_amount);
+				const late = due > 0.005 && r.due_date < today;
+				return `<tr><td>${frappe.datetime.str_to_user(r.due_date)}</td><td>${format_currency(r.payment_amount)}</td><td>${format_currency(r.paid_amount)}</td>
+					<td>${due > 0.005 ? format_currency(due) : "✓"}</td><td>${late ? `<span class="indicator-pill red">${__("Late")}</span>` : ""}</td></tr>`;
+			}).join("");
+			w.html(`<table class="table table-bordered"><thead><tr><th>${__("Due Date")}</th><th>${__("Amount")}</th><th>${__("Paid")}</th><th>${__("Still Due")}</th><th></th></tr></thead><tbody>${rows}</tbody></table>`);
+		});
+	},
 	financing_type(frm) {
 		if (frm.doc.financing_type === "Showroom Installments") {
 			frappe.db.get_value("Showroom Settings", null, ["default_months", "default_markup_pct"]).then((r) => {
@@ -18,6 +43,7 @@ frappe.ui.form.on("Car Sale", {
 		}
 	},
 	refresh(frm) {
+		frm.events.show_schedule(frm);
 		if (frm.is_new()) return;
 		const s = frm.doc.status;
 		const act = (method, args, done) => frm.call({ doc: frm.doc, method, args: args || {}, freeze: true }).then((r) => { frm.reload_doc(); if (done) done(r.message); });

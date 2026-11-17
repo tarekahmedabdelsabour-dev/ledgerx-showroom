@@ -17,8 +17,8 @@
    "label": "Cars by Showroom"
   }
  ],
- "content": "[{\"id\": \"003e39d30d\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Showroom</b></span>\", \"col\": 12}}, {\"id\": \"750f0a0943\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Car\", \"col\": 3}}, {\"id\": \"f6fd7c0a32\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Car Booking\", \"col\": 3}}, {\"id\": \"577a1982c1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Car Sale\", \"col\": 3}}, {\"id\": \"453c891ced\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Test Drive\", \"col\": 3}}, {\"id\": \"0a496f915c\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Cars Ready for Sale\", \"col\": 3}}, {\"id\": \"80f50998b5\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Cars in Preparation\", \"col\": 3}}, {\"id\": \"b298082113\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Reserved Cars\", \"col\": 3}}, {\"id\": \"8d6eee04ee\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Active Bookings\", \"col\": 3}}, {\"id\": \"cde7ded1ea\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Draft Sales\", \"col\": 3}}, {\"id\": \"74c12289c7\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Sales Awaiting Delivery\", \"col\": 3}}, {\"id\": \"4afcad2393\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Sales This Month\", \"col\": 3}}, {\"id\": \"eb272e8218\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Test Drives Today\", \"col\": 3}}, {\"id\": \"9faeffdbcc\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Car Sales per Month\", \"col\": 6}}, {\"id\": \"124985a7e1\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Cars by Status\", \"col\": 6}}, {\"id\": \"f943a8eb63\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Sales by Payment Method\", \"col\": 6}}, {\"id\": \"3f481a4aaf\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Cars by Showroom\", \"col\": 6}}, {\"id\": \"91e26650fc\", \"type\": \"card\", \"data\": {\"card_name\": \"Reports\", \"col\": 4}}, {\"id\": \"bbe6fa5e9b\", \"type\": \"card\", \"data\": {\"card_name\": \"Setup\", \"col\": 4}}, {\"id\": \"e5a6b3d6a5\", \"type\": \"card\", \"data\": {\"card_name\": \"Related\", \"col\": 4}}]",
- "creation": "2026-11-16 22:30:00.000000",
+ "content": "[{\"id\": \"c8ccf5150a\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Showroom</b></span>\", \"col\": 12}}, {\"id\": \"777c4863f8\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Car Sale\", \"col\": 3}}, {\"id\": \"6fa207c342\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Installments Due\", \"col\": 3}}, {\"id\": \"9963fb1af3\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Financing Plan\", \"col\": 3}}, {\"id\": \"b886727c74\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Car Booking\", \"col\": 3}}, {\"id\": \"c24870098d\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Cars Ready for Sale\", \"col\": 3}}, {\"id\": \"43598b2d5a\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Cars in Preparation\", \"col\": 3}}, {\"id\": \"e82525e609\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Reserved Cars\", \"col\": 3}}, {\"id\": \"f52b847497\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Active Bookings\", \"col\": 3}}, {\"id\": \"7da73c585d\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Draft Sales\", \"col\": 3}}, {\"id\": \"2f87678ec3\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Sales Awaiting Delivery\", \"col\": 3}}, {\"id\": \"00c479e5d9\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Sales This Month\", \"col\": 3}}, {\"id\": \"d64085485d\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Test Drives Today\", \"col\": 3}}, {\"id\": \"00a33e656b\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Car Sales per Month\", \"col\": 6}}, {\"id\": \"80cc4a4c7e\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Cars by Status\", \"col\": 6}}, {\"id\": \"3a4c1748d7\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Sales by Payment Method\", \"col\": 6}}, {\"id\": \"dd8421f6a9\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Cars by Showroom\", \"col\": 6}}, {\"id\": \"5da89aab6e\", \"type\": \"card\", \"data\": {\"card_name\": \"Reports\", \"col\": 4}}, {\"id\": \"015049ab49\", \"type\": \"card\", \"data\": {\"card_name\": \"Setup\", \"col\": 4}}, {\"id\": \"46597fa931\", \"type\": \"card\", \"data\": {\"card_name\": \"Related\", \"col\": 4}}]",
+ "creation": "2026-11-17 07:00:00.000000",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -34,7 +34,7 @@
    "label": "Reports",
    "hidden": 0,
    "is_query_report": 0,
-   "link_count": 3,
+   "link_count": 2,
    "onboard": 0
   },
   {
@@ -60,22 +60,11 @@
    "only_for": ""
   },
   {
-   "type": "Link",
-   "label": "Installments Due",
-   "link_type": "Report",
-   "link_to": "Installments Due",
-   "hidden": 0,
-   "is_query_report": 1,
-   "onboard": 0,
-   "dependencies": "",
-   "only_for": ""
-  },
-  {
    "type": "Card Break",
    "label": "Setup",
    "hidden": 0,
    "is_query_report": 0,
-   "link_count": 6,
+   "link_count": 7,
    "onboard": 0
   },
   {
@@ -105,6 +94,17 @@
    "label": "Car Model",
    "link_type": "DocType",
    "link_to": "Car Model",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  },
+  {
+   "type": "Link",
+   "label": "Financing Plan",
+   "link_type": "DocType",
+   "link_to": "Financing Plan",
    "hidden": 0,
    "is_query_report": 0,
    "onboard": 0,
@@ -220,7 +220,7 @@
   }
  ],
  "title": "Showroom",
- "modified": "2026-11-16 22:30:00.000000",
+ "modified": "2026-11-17 07:00:00.000000",
  "modified_by": "Administrator",
  "module": "Showroom",
  "name": "Showroom",
@@ -266,26 +266,26 @@
  "sequence_id": 22.0,
  "shortcuts": [
   {
-   "label": "Car",
-   "link_to": "Car",
-   "type": "DocType",
-   "doc_view": "List"
-  },
-  {
-   "label": "Car Booking",
-   "link_to": "Car Booking",
-   "type": "DocType",
-   "doc_view": "List"
-  },
-  {
    "label": "Car Sale",
    "link_to": "Car Sale",
    "type": "DocType",
    "doc_view": "List"
   },
   {
-   "label": "Test Drive",
-   "link_to": "Test Drive",
+   "label": "Installments Due",
+   "link_to": "Installments Due",
+   "type": "Report",
+   "is_query_report": 1
+  },
+  {
+   "label": "Financing Plan",
+   "link_to": "Financing Plan",
+   "type": "DocType",
+   "doc_view": "List"
+  },
+  {
+   "label": "Car Booking",
+   "link_to": "Car Booking",
    "type": "DocType",
    "doc_view": "List"
   }
