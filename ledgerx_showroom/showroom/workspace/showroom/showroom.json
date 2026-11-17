@@ -17,8 +17,8 @@
    "label": "Cars by Showroom"
   }
  ],
- "content": "[{\"id\": \"49f7bb8335\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Showroom</b></span>\", \"col\": 12}}, {\"id\": \"43fdf8babc\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Cars Ready for Sale\", \"col\": 3}}, {\"id\": \"0550842ca3\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Cars in Preparation\", \"col\": 3}}, {\"id\": \"0e193ff34c\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Reserved Cars\", \"col\": 3}}, {\"id\": \"eecbd5e3f6\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Active Bookings\", \"col\": 3}}, {\"id\": \"3cf925e38b\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Draft Sales\", \"col\": 3}}, {\"id\": \"5ab1123773\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Sales Awaiting Delivery\", \"col\": 3}}, {\"id\": \"d97baa1280\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Sales This Month\", \"col\": 3}}, {\"id\": \"5a57638088\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Test Drives Today\", \"col\": 3}}, {\"id\": \"3a98a60924\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Car Sales per Month\", \"col\": 6}}, {\"id\": \"c0466a5296\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Cars by Status\", \"col\": 6}}, {\"id\": \"cb005092ec\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Sales by Payment Method\", \"col\": 6}}, {\"id\": \"ea3caca2c3\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Cars by Showroom\", \"col\": 6}}, {\"id\": \"5dcde32de9\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Car\", \"col\": 3}}, {\"id\": \"e606128b87\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Car Booking\", \"col\": 3}}, {\"id\": \"04738eda9a\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Car Sale\", \"col\": 3}}, {\"id\": \"92686c2b66\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Test Drive\", \"col\": 3}}, {\"id\": \"e397e1a1e5\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Showroom\", \"col\": 3}}, {\"id\": \"4dac25ffdd\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Car Make\", \"col\": 3}}, {\"id\": \"169ee101c7\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Car Model\", \"col\": 3}}, {\"id\": \"136c191943\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Financing Company\", \"col\": 3}}, {\"id\": \"b1efc350cd\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Sale Extra\", \"col\": 3}}, {\"id\": \"2d579e240e\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Showroom Settings\", \"col\": 3}}, {\"id\": \"4917328dee\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Showroom Stock\", \"col\": 3}}, {\"id\": \"70fdd48191\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Car Sales Margin\", \"col\": 3}}, {\"id\": \"89dcaf4507\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Installments Due\", \"col\": 3}}]",
- "creation": "2026-11-16 22:00:00.000000",
+ "content": "[{\"id\": \"003e39d30d\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Showroom</b></span>\", \"col\": 12}}, {\"id\": \"750f0a0943\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Car\", \"col\": 3}}, {\"id\": \"f6fd7c0a32\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Car Booking\", \"col\": 3}}, {\"id\": \"577a1982c1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Car Sale\", \"col\": 3}}, {\"id\": \"453c891ced\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Test Drive\", \"col\": 3}}, {\"id\": \"0a496f915c\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Cars Ready for Sale\", \"col\": 3}}, {\"id\": \"80f50998b5\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Cars in Preparation\", \"col\": 3}}, {\"id\": \"b298082113\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Reserved Cars\", \"col\": 3}}, {\"id\": \"8d6eee04ee\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Active Bookings\", \"col\": 3}}, {\"id\": \"cde7ded1ea\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Draft Sales\", \"col\": 3}}, {\"id\": \"74c12289c7\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Sales Awaiting Delivery\", \"col\": 3}}, {\"id\": \"4afcad2393\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Sales This Month\", \"col\": 3}}, {\"id\": \"eb272e8218\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Test Drives Today\", \"col\": 3}}, {\"id\": \"9faeffdbcc\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Car Sales per Month\", \"col\": 6}}, {\"id\": \"124985a7e1\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Cars by Status\", \"col\": 6}}, {\"id\": \"f943a8eb63\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Sales by Payment Method\", \"col\": 6}}, {\"id\": \"3f481a4aaf\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Cars by Showroom\", \"col\": 6}}, {\"id\": \"91e26650fc\", \"type\": \"card\", \"data\": {\"card_name\": \"Reports\", \"col\": 4}}, {\"id\": \"bbe6fa5e9b\", \"type\": \"card\", \"data\": {\"card_name\": \"Setup\", \"col\": 4}}, {\"id\": \"e5a6b3d6a5\", \"type\": \"card\", \"data\": {\"card_name\": \"Related\", \"col\": 4}}]",
+ "creation": "2026-11-16 22:30:00.000000",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -28,9 +28,199 @@
  "idx": 1,
  "is_hidden": 0,
  "label": "Showroom",
- "links": [],
+ "links": [
+  {
+   "type": "Card Break",
+   "label": "Reports",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 3,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Showroom Stock",
+   "link_type": "Report",
+   "link_to": "Showroom Stock",
+   "hidden": 0,
+   "is_query_report": 1,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  },
+  {
+   "type": "Link",
+   "label": "Car Sales Margin",
+   "link_type": "Report",
+   "link_to": "Car Sales Margin",
+   "hidden": 0,
+   "is_query_report": 1,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  },
+  {
+   "type": "Link",
+   "label": "Installments Due",
+   "link_type": "Report",
+   "link_to": "Installments Due",
+   "hidden": 0,
+   "is_query_report": 1,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  },
+  {
+   "type": "Card Break",
+   "label": "Setup",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 6,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Showroom",
+   "link_type": "DocType",
+   "link_to": "Showroom",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  },
+  {
+   "type": "Link",
+   "label": "Car Make",
+   "link_type": "DocType",
+   "link_to": "Car Make",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  },
+  {
+   "type": "Link",
+   "label": "Car Model",
+   "link_type": "DocType",
+   "link_to": "Car Model",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  },
+  {
+   "type": "Link",
+   "label": "Financing Company",
+   "link_type": "DocType",
+   "link_to": "Financing Company",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  },
+  {
+   "type": "Link",
+   "label": "Sale Extra",
+   "link_type": "DocType",
+   "link_to": "Sale Extra",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  },
+  {
+   "type": "Link",
+   "label": "Showroom Settings",
+   "link_type": "DocType",
+   "link_to": "Showroom Settings",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  },
+  {
+   "type": "Card Break",
+   "label": "Related",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 6,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Customer",
+   "link_type": "DocType",
+   "link_to": "Customer",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  },
+  {
+   "type": "Link",
+   "label": "Sales Invoice",
+   "link_type": "DocType",
+   "link_to": "Sales Invoice",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  },
+  {
+   "type": "Link",
+   "label": "Payment Entry",
+   "link_type": "DocType",
+   "link_to": "Payment Entry",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  },
+  {
+   "type": "Link",
+   "label": "Journal Entry",
+   "link_type": "DocType",
+   "link_to": "Journal Entry",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  },
+  {
+   "type": "Link",
+   "label": "Employee",
+   "link_type": "DocType",
+   "link_to": "Employee",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  },
+  {
+   "type": "Link",
+   "label": "Additional Salary",
+   "link_type": "DocType",
+   "link_to": "Additional Salary",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0,
+   "dependencies": "",
+   "only_for": ""
+  }
+ ],
  "title": "Showroom",
- "modified": "2026-11-16 22:00:00.000000",
+ "modified": "2026-11-16 22:30:00.000000",
  "modified_by": "Administrator",
  "module": "Showroom",
  "name": "Showroom",
@@ -98,57 +288,6 @@
    "link_to": "Test Drive",
    "type": "DocType",
    "doc_view": "List"
-  },
-  {
-   "label": "Showroom",
-   "link_to": "Showroom",
-   "type": "DocType",
-   "doc_view": "List"
-  },
-  {
-   "label": "Car Make",
-   "link_to": "Car Make",
-   "type": "DocType",
-   "doc_view": "List"
-  },
-  {
-   "label": "Car Model",
-   "link_to": "Car Model",
-   "type": "DocType",
-   "doc_view": "List"
-  },
-  {
-   "label": "Financing Company",
-   "link_to": "Financing Company",
-   "type": "DocType",
-   "doc_view": "List"
-  },
-  {
-   "label": "Sale Extra",
-   "link_to": "Sale Extra",
-   "type": "DocType",
-   "doc_view": "List"
-  },
-  {
-   "label": "Showroom Settings",
-   "link_to": "Showroom Settings",
-   "type": "DocType",
-   "doc_view": "List"
-  },
-  {
-   "label": "Showroom Stock",
-   "link_to": "Showroom Stock",
-   "type": "Report"
-  },
-  {
-   "label": "Car Sales Margin",
-   "link_to": "Car Sales Margin",
-   "type": "Report"
-  },
-  {
-   "label": "Installments Due",
-   "link_to": "Installments Due",
-   "type": "Report"
   }
  ]
 }

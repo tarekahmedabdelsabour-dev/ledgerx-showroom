@@ -17,6 +17,14 @@ add_to_apps_screen = [
 	}
 ]
 
+override_doctype_dashboards = {
+	"Customer": "ledgerx_showroom.overrides.customer",
+	"Employee": "ledgerx_showroom.overrides.employee",
+	"Sales Invoice": "ledgerx_showroom.overrides.sales_invoice",
+	"Journal Entry": "ledgerx_showroom.overrides.journal_entry",
+	"Payment Entry": "ledgerx_showroom.overrides.payment_entry",
+}
+
 scheduler_events = {
 	"cron": {
 		"0 6 * * *": ["ledgerx_showroom.tasks.expire_bookings"],

@@ -4,7 +4,7 @@ import os
 import uuid
 
 BASE = os.path.join(os.path.dirname(__file__), "..", "ledgerx_showroom")
-TS = "2026-11-16 22:00:00.000000"  # raise this whenever the workspace changes: migrate only re-reads a file that is newer than the saved one
+TS = "2026-11-16 22:30:00.000000"  # raise this whenever the workspace changes: migrate only re-reads a file that is newer than the saved one
 CARDS = [  # (label, doctype, filters, function, fn_field)
 	("Cars Ready for Sale", "Car", [["Car", "status", "=", "Ready for Sale"]], "Count", None),
 	("Cars in Preparation", "Car", [["Car", "status", "=", "In Preparation"]], "Count", None),
@@ -21,21 +21,23 @@ CHARTS = [  # (name, doctype, type, kind, extra)
 	("Sales by Payment Method", "Car Sale", "Donut", "group", {"by": "financing_type"}),
 	("Cars by Showroom", "Car", "Bar", "group", {"by": "showroom"}),
 ]
-ITEMS = [  # (label, kind, target, icon)
-	("Car", "DocType", "Car", "car"),
-	("Car Booking", "DocType", "Car Booking", "calendar-check"),
-	("Car Sale", "DocType", "Car Sale", "file-text"),
-	("Test Drive", "DocType", "Test Drive", "gauge"),
-	("Showroom", "DocType", "Showroom", "store"),
-	("Car Make", "DocType", "Car Make", "tag"),
-	("Car Model", "DocType", "Car Model", "car-front"),
-	("Financing Company", "DocType", "Financing Company", "landmark"),
-	("Sale Extra", "DocType", "Sale Extra", "package-plus"),
-	("Showroom Settings", "DocType", "Showroom Settings", "settings"),
-	("Showroom Stock", "Report", "Showroom Stock", "layout-list"),
-	("Car Sales Margin", "Report", "Car Sales Margin", "trending-up"),
-	("Installments Due", "Report", "Installments Due", "alarm-clock"),
+GROUPS = [  # (title, icon, collapsed, [(label, kind, target, icon)])
+	("Daily Work", None, 0, [
+		("Car", "DocType", "Car", "car"), ("Car Booking", "DocType", "Car Booking", "calendar-check"),
+		("Car Sale", "DocType", "Car Sale", "file-text"), ("Test Drive", "DocType", "Test Drive", "gauge")]),
+	("Reports", "bar-chart-3", 0, [
+		("Showroom Stock", "Report", "Showroom Stock", "layout-list"), ("Car Sales Margin", "Report", "Car Sales Margin", "trending-up"),
+		("Installments Due", "Report", "Installments Due", "alarm-clock")]),
+	("Setup", "settings", 1, [
+		("Showroom", "DocType", "Showroom", "store"), ("Car Make", "DocType", "Car Make", "tag"), ("Car Model", "DocType", "Car Model", "car-front"),
+		("Financing Company", "DocType", "Financing Company", "landmark"), ("Sale Extra", "DocType", "Sale Extra", "package-plus"),
+		("Showroom Settings", "DocType", "Showroom Settings", "settings")]),
+	("Related", "link-2", 1, [  # the rest of the app these documents are tied to
+		("Customer", "DocType", "Customer", "users"), ("Sales Invoice", "DocType", "Sales Invoice", "receipt"),
+		("Payment Entry", "DocType", "Payment Entry", "wallet"), ("Journal Entry", "DocType", "Journal Entry", "book-open"),
+		("Employee", "DocType", "Employee", "user-round"), ("Additional Salary", "DocType", "Additional Salary", "banknote")]),
 ]
+TOP = ["Car", "Car Booking", "Car Sale", "Test Drive"]
 
 
 def write(path, data):
@@ -69,28 +71,36 @@ def write_cards():
 
 def main():
 	write_cards()
-	content = [{"id": uuid.uuid4().hex[:10], "type": "header", "data": {"text": '<span class="h4"><b>Showroom</b></span>', "col": 12}}]
+	rid = lambda: uuid.uuid4().hex[:10]
+	content = [{"id": rid(), "type": "header", "data": {"text": '<span class="h4"><b>Showroom</b></span>', "col": 12}}]
 	for label, *_r in CARDS:
-		content.append({"id": uuid.uuid4().hex[:10], "type": "number_card", "data": {"number_card_name": label, "col": 3}})
+		content.append({"id": rid(), "type": "number_card", "data": {"number_card_name": label, "col": 3}})
 	for name, *_r in CHARTS:
-		content.append({"id": uuid.uuid4().hex[:10], "type": "chart", "data": {"chart_name": name, "col": 6}})
-	shortcuts = []
-	for label, kind, target, _icon in ITEMS:
-		content.append({"id": uuid.uuid4().hex[:10], "type": "shortcut", "data": {"shortcut_name": label, "col": 3}})
-		s = {"label": label, "link_to": target, "type": kind}
-		if kind == "DocType":
-			s["doc_view"] = "List"
-		shortcuts.append(s)
+		content.append({"id": rid(), "type": "chart", "data": {"chart_name": name, "col": 6}})
+	shortcuts, links = [], []
+	for label in TOP:
+		content.insert(1 + len(shortcuts), {"id": rid(), "type": "shortcut", "data": {"shortcut_name": label, "col": 3}})
+		shortcuts.append({"label": label, "link_to": label, "type": "DocType", "doc_view": "List"})
+	for title, _i, _c, items in GROUPS[1:]:
+		content.append({"id": rid(), "type": "card", "data": {"card_name": title, "col": 4}})
+		links.append({"type": "Card Break", "label": title, "hidden": 0, "is_query_report": 0, "link_count": len(items), "onboard": 0})
+		for label, kind, target, _icon in items:
+			links.append({"type": "Link", "label": label, "link_type": kind, "link_to": target, "hidden": 0, "is_query_report": 1 if kind == "Report" else 0,
+				"onboard": 0, "dependencies": "", "only_for": ""})
 	write(os.path.join(BASE, "showroom", "workspace", "showroom", "showroom.json"), {
 		"charts": [{"chart_name": c[0], "label": c[0]} for c in CHARTS], "content": json.dumps(content), "creation": TS, "custom_blocks": [], "docstatus": 0, "doctype": "Workspace",
-		"for_user": "", "hide_custom": 1, "icon": "car", "idx": 1, "is_hidden": 0, "label": "Showroom", "links": [], "title": "Showroom", "modified": TS,
+		"for_user": "", "hide_custom": 1, "icon": "car", "idx": 1, "is_hidden": 0, "label": "Showroom", "links": links, "title": "Showroom", "modified": TS,
 		"modified_by": "Administrator", "module": "Showroom", "name": "Showroom", "number_cards": [{"label": c[0], "number_card_name": c[0]} for c in CARDS], "owner": "Administrator",
 		"parent_page": "", "public": 1, "quick_lists": [], "roles": [], "sequence_id": 22.0, "shortcuts": shortcuts})
-	items = [{"child": 0, "collapsible": 1, "doctype": "Sidebar Item", "icon": "house", "idx": 1, "indent": 0, "keep_closed": 0, "label": "Home",
-		"link_to": "Showroom", "link_type": "Workspace", "parentfield": "items", "parenttype": "Sidebar", "show_arrow": 0, "type": "Link"}]
-	for i, (label, kind, target, icon) in enumerate(ITEMS, start=2):
-		items.append({"child": 0, "collapsible": 1, "doctype": "Sidebar Item", "icon": icon, "idx": i, "indent": 0, "keep_closed": 0,
-			"label": label, "link_to": target, "link_type": kind, "parentfield": "items", "parenttype": "Sidebar", "show_arrow": 0, "type": "Link"})
+	row = lambda i, label, kind, target, icon, child: {"child": child, "collapsible": 1, "doctype": "Sidebar Item", "icon": icon, "idx": i, "indent": 0,
+		"keep_closed": 0, "label": label, "link_to": target, "link_type": kind, "parentfield": "items", "parenttype": "Sidebar", "show_arrow": 0, "type": "Link"}
+	items = [row(1, "Home", "Workspace", "Showroom", "house", 0)]
+	for title, icon, closed, entries in GROUPS:
+		if icon:
+			items.append({"child": 0, "collapsible": 1, "doctype": "Sidebar Item", "icon": icon, "idx": len(items) + 1, "indent": 1, "keep_closed": closed,
+				"label": title, "link_type": "DocType", "parentfield": "items", "parenttype": "Sidebar", "show_arrow": 0, "type": "Section Break"})
+		for label, kind, target, ic in entries:
+			items.append(row(len(items) + 1, label, kind, target, ic, 1 if icon else 0))
 	write(os.path.join(BASE, "sidebar", "showroom", "showroom.json"), {"app": "ledgerx_showroom", "doctype": "Sidebar", "header_icon": "car",
 		"items": items, "module": "Showroom", "name": "Showroom", "standard": 1, "title": "Showroom"})
 	write(os.path.join(BASE, "dock", "showroom", "showroom.json"), {"app": "ledgerx_showroom", "creation": TS, "docstatus": 0, "doctype": "Dock", "idx": 0,
