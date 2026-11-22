@@ -1,4 +1,5 @@
 """Install and migrate steps. Each is idempotent and a failing step never aborts a migrate."""
+import json
 import os
 
 import frappe
@@ -74,11 +75,35 @@ def ensure_settings():
 
 
 def ensure_crm_fields():
-	"""When Frappe CRM is installed, a lead or deal can name the car the customer asks about."""
+	"""When Frappe CRM is installed, a lead or deal can name the car the customer asks about.
+	The CRM only shows a custom field once it is in a layout, so the field is also added (once) to the side panel."""
 	for dt in ("CRM Lead", "CRM Deal"):
-		if frappe.db.exists("DocType", dt) and not frappe.db.exists("Custom Field", {"dt": dt, "fieldname": "interested_car"}):
+		if not frappe.db.exists("DocType", dt):
+			continue
+		if not frappe.db.exists("Custom Field", {"dt": dt, "fieldname": "interested_car"}):
 			frappe.get_doc({"doctype": "Custom Field", "dt": dt, "fieldname": "interested_car", "label": "Car of Interest", "fieldtype": "Link",
 				"options": "Car", "insert_after": "status"}).insert(ignore_permissions=True)
+		_add_to_side_panel(dt)
+
+
+def _add_to_side_panel(dt):
+	key = "lx_showroom_panel_" + dt.replace(" ", "_").lower()
+	name = f"{dt}-Side Panel"
+	if frappe.db.get_default(key) or not frappe.db.exists("DocType", "CRM Fields Layout") or not frappe.db.exists("CRM Fields Layout", name):
+		return  # done before (an administrator may have removed it on purpose), or the CRM has no such layout yet
+	doc = frappe.get_doc("CRM Fields Layout", name)
+	layout = json.loads(doc.layout) if doc.layout else []
+	if any(isinstance(sec, dict) and "sections" in sec for sec in layout):
+		return  # tabbed layout: leave it to the administrator
+	for sec in layout:
+		for col in sec.get("columns") or []:
+			if "interested_car" in [(f.get("fieldname") if isinstance(f, dict) else f) for f in col.get("fields") or []]:
+				frappe.db.set_default(key, "1")
+				return
+	layout.append({"name": "showroom_section", "label": "Showroom", "opened": True, "columns": [{"name": "showroom_column", "fields": ["interested_car"]}]})
+	doc.layout = json.dumps(layout)
+	doc.save(ignore_permissions=True)
+	frappe.db.set_default(key, "1")
 
 
 def refresh_workspace():
