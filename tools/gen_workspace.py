@@ -24,7 +24,7 @@ CHARTS = [  # (name, doctype, type, kind, extra)
 GROUPS = [  # (title, icon, collapsed, [(label, kind, target, icon)])
 	("Daily Work", None, 0, [
 		("Car", "DocType", "Car", "car"), ("Car Booking", "DocType", "Car Booking", "calendar-check"),
-		("Car Sale", "DocType", "Car Sale", "file-text"), ("Test Drive", "DocType", "Test Drive", "gauge"), ("Installments Due", "Report", "Installments Due", "alarm-clock")]),
+		("Car Sale", "DocType", "Car Sale", "file-text"), ("Test Drive", "DocType", "Test Drive", "gauge"), ("Installments Due", "Report", "Showroom Installments Due", "alarm-clock")]),
 	("Reports", "bar-chart-3", 0, [
 		("Showroom Stock", "Report", "Showroom Stock", "layout-list"), ("Car Sales Margin", "Report", "Car Sales Margin", "trending-up")]),
 	("Setup", "settings", 1, [
@@ -80,7 +80,7 @@ def main():
 	for label in TOP:
 		content.insert(1 + len(shortcuts), {"id": rid(), "type": "shortcut", "data": {"shortcut_name": label, "col": 3}})
 		kind = "Report" if label in ("Installments Due",) else "DocType"
-		sc = {"label": label, "link_to": label, "type": kind}
+		sc = {"label": label, "link_to": "Showroom Installments Due" if label == "Installments Due" else label, "type": kind}
 		if kind == "DocType":
 			sc["doc_view"] = "List"
 		else:

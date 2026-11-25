@@ -9,11 +9,11 @@
  "modified": "2026-11-16 21:40:00.000000",
  "modified_by": "Administrator",
  "module": "Showroom",
- "name": "Installments Due",
+ "name": "Showroom Installments Due",
  "owner": "Administrator",
  "prepared_report": 0,
  "ref_doctype": "Sales Invoice",
- "report_name": "Installments Due",
+ "report_name": "Showroom Installments Due",
  "report_type": "Script Report",
  "roles": [
   {
