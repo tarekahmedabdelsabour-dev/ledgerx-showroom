@@ -70,5 +70,6 @@
  ],
  "autoname": "field:make_name",
  "icon": "fa fa-tag",
- "allow_rename": 0
+ "allow_rename": 0,
+ "track_changes": 1
 }

@@ -142,5 +142,6 @@
  ],
  "autoname": "field:plan_name",
  "icon": "fa fa-percent",
- "allow_rename": 0
+ "allow_rename": 0,
+ "track_changes": 1
 }
