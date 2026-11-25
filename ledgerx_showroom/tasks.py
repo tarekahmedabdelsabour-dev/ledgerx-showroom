@@ -5,10 +5,14 @@ from frappe.utils import add_months, get_first_day, get_last_day, getdate, nowda
 def expire_bookings():
 	"""A booking past its date frees the car again (the deposit stays with the customer as an advance)."""
 	for name in frappe.get_all("Car Booking", filters={"status": "Active", "valid_until": ["<", nowdate()]}, pluck="name"):
-		doc = frappe.get_doc("Car Booking", name)
-		doc._free_car()
-		doc.db_set("status", "Expired")
-		frappe.db.commit()
+		try:
+			doc = frappe.get_doc("Car Booking", name)
+			doc._free_car()
+			doc.db_set("status", "Expired")
+			frappe.db.commit()
+		except Exception:
+			frappe.db.rollback()
+			frappe.log_error(title=f"Booking expiry failed for {name}")
 
 
 def monthly_commissions():
