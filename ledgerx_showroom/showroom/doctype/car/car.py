@@ -34,9 +34,10 @@ class Car(Document):
 		if self.status not in statuses:
 			frappe.throw(_("The car is {0}").format(_(self.status)))
 
-	@frappe.whitelist()
+	@frappe.whitelist(methods=["POST"])
 	def acquire(self, paid_from=None):
 		"""Record the purchase: the price enters the inventory and the money (or the debt) leaves."""
+		self.check_permission("write")
 		self._need("Draft")
 		if flt(self.purchase_price) <= 0:
 			frappe.throw(_("Enter the purchase price first"))
@@ -47,9 +48,10 @@ class Car(Document):
 			"status": "In Preparation"})
 		self.reload()
 
-	@frappe.whitelist()
+	@frappe.whitelist(methods=["POST"])
 	def add_cost(self, cost_type, amount, description=None, paid_from=None):
 		"""A preparation cost (repair, paint, papers...) adds to the car's cost and to the inventory."""
+		self.check_permission("write")
 		self._need("In Preparation", "Ready for Sale", "Reserved")
 		amount = flt(amount)
 		if amount <= 0:
@@ -59,8 +61,9 @@ class Car(Document):
 		self.save(ignore_permissions=True)
 		return {"total_cost": self.total_cost}
 
-	@frappe.whitelist()
+	@frappe.whitelist(methods=["POST"])
 	def mark_ready(self):
+		self.check_permission("write")
 		self._need("In Preparation")
 		if flt(self.asking_price) <= 0:
 			frappe.throw(_("Set the asking price first"))
@@ -68,8 +71,9 @@ class Car(Document):
 			frappe.throw(_("Finish the inspection checklist first"))
 		self.db_set("status", "Ready for Sale")
 
-	@frappe.whitelist()
+	@frappe.whitelist(methods=["POST"])
 	def transfer(self, to_showroom, note=None):
+		self.check_permission("write")
 		self._need("In Preparation", "Ready for Sale")
 		if to_showroom == self.showroom:
 			frappe.throw(_("The car is already in this showroom"))
@@ -79,9 +83,10 @@ class Car(Document):
 		self.showroom = to_showroom
 		self.save(ignore_permissions=True)
 
-	@frappe.whitelist()
+	@frappe.whitelist(methods=["POST"])
 	def withdraw(self):
 		"""Take the car off sale (returned to the seller, scrapped...). Its cost stays in the inventory until you settle it by hand."""
+		self.check_permission("write")
 		if self.status in LOCKED:
 			frappe.throw(_("The car is {0}").format(_(self.status)))
 		self.db_set("status", "Withdrawn")

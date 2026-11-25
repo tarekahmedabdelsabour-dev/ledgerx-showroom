@@ -27,9 +27,10 @@ class CarBooking(Document):
 		if frappe.db.get_value("Car", self.car, "status") == "Reserved":
 			frappe.db.set_value("Car", self.car, {"status": "Ready for Sale", "booking": None})
 
-	@frappe.whitelist()
+	@frappe.whitelist(methods=["POST"])
 	def cancel_booking(self, refund=0):
 		"""Free the car. The deposit is paid back, or stays with the customer as an advance (to be kept by the showroom by hand)."""
+		self.check_permission("write")
 		if self.status != "Active":
 			frappe.throw(_("The booking is {0}").format(_(self.status)))
 		if int(refund) and flt(self.deposit):

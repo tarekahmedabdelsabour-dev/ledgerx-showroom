@@ -56,9 +56,10 @@ class CarSale(Document):
 		if self.status not in statuses:
 			frappe.throw(_("The sale is {0}").format(_(self.status)))
 
-	@frappe.whitelist()
+	@frappe.whitelist(methods=["POST"])
 	def confirm(self):
 		"""Invoice the customer, book the cost of the car, and mark it sold."""
+		self.check_permission("write")
 		self._need("Draft")
 		s = accounting.settings()
 		car = frappe.get_doc("Car", self.car)
@@ -119,9 +120,10 @@ class CarSale(Document):
 		app.insert(ignore_permissions=True)
 		self.db_set("loan_application", app.name)
 
-	@frappe.whitelist()
+	@frappe.whitelist(methods=["POST"])
 	def receive_payment(self, mode_of_payment, amount, reference=None):
 		"""Down payment or an installment: any amount up to what is still due."""
+		self.check_permission("write")
 		self._need("Confirmed", "Delivered")
 		out = flt(frappe.db.get_value("Sales Invoice", self.sales_invoice, "outstanding_amount"))
 		amount = flt(amount)
@@ -130,9 +132,10 @@ class CarSale(Document):
 		return accounting.payment(self.customer, amount, accounting.money_account(mode_of_payment), self.sales_invoice,
 			_("Car sale {0}").format(self.name), reference=reference)
 
-	@frappe.whitelist()
+	@frappe.whitelist(methods=["POST"])
 	def receive_from_bank(self, mode_of_payment, amount, fee=0, reference=None):
 		"""The bank or finance company pays the financed amount (it may keep a fee)."""
+		self.check_permission("write")
 		self._need("Confirmed", "Delivered")
 		if self.financing_type != "Bank Financing":
 			frappe.throw(_("This sale is not financed by a bank"))
@@ -142,9 +145,10 @@ class CarSale(Document):
 		return accounting.payment(self.customer, amount, accounting.money_account(mode_of_payment), self.sales_invoice,
 			_("{0} - car sale {1}").format(self.financier or _("Bank"), self.name), fee=fee, reference=reference)
 
-	@frappe.whitelist()
+	@frappe.whitelist(methods=["POST"])
 	def settle_from_loan(self, amount=None):
 		"""The Lending module paid the loan out: clear that amount from the invoice (through the clearing account)."""
+		self.check_permission("write")
 		self._need("Confirmed", "Delivered")
 		s = accounting.settings()
 		out = flt(frappe.db.get_value("Sales Invoice", self.sales_invoice, "outstanding_amount"))
@@ -154,13 +158,15 @@ class CarSale(Document):
 		return accounting.payment(self.customer, amount, accounting.need(s, "loan_clearing_account", "Loan Clearing Account"), self.sales_invoice,
 			_("Loan {0} - car sale {1}").format(self.loan or self.loan_application or "", self.name), reference=self.loan or self.name)
 
-	@frappe.whitelist()
+	@frappe.whitelist(methods=["POST"])
 	def deliver(self):
+		self.check_permission("write")
 		self._need("Confirmed")
 		self.db_set("status", "Delivered")
 		frappe.db.set_value("Car", self.car, "status", "Delivered")
 
-	@frappe.whitelist()
+	@frappe.whitelist(methods=["POST"])
 	def cancel_draft(self):
+		self.check_permission("write")
 		self._need("Draft")
 		self.db_set("status", "Cancelled")
