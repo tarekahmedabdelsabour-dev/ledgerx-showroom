@@ -165,6 +165,23 @@ class CarSale(Document):
 		self.db_set("status", "Delivered")
 		frappe.db.set_value("Car", self.car, "status", "Delivered")
 
+	def on_trash(self):
+		if self.status not in ("Draft", "Cancelled") or self.sales_invoice:
+			frappe.throw(_("A confirmed sale cannot be deleted. Issue a credit note instead."))
+
+	@frappe.whitelist(methods=["POST"])
+	def issue_credit_note(self, reason):
+		"""The way to undo a confirmed sale before delivery: a credit note, the cost entry reversed, and the car back in stock."""
+		self.check_permission("write")
+		self._need("Confirmed")  # a delivered car has to be taken back first, which is a separate, physical step
+		note = shared.credit_note(self.sales_invoice, reason)
+		vals = {"credit_note": note, "status": "Cancelled"}
+		if self.cogs_entry:
+			vals["cogs_reversal_entry"] = shared.reverse_journal(self.cogs_entry, _("Reversal of the cost of sale {0}").format(self.name))
+		self.db_set(vals)
+		frappe.db.set_value("Car", self.car, {"status": "Ready for Sale", "sale": None})
+		return note
+
 	@frappe.whitelist(methods=["POST"])
 	def cancel_draft(self):
 		self.check_permission("write")

@@ -258,6 +258,8 @@ doctype("Car Sale", [
 	sec("sb_acc", "Accounting and Commission"),
 	f("sales_invoice", "Link", "Sales Invoice", options="Sales Invoice", read_only=1, no_copy=1),
 	f("cogs_entry", "Link", "Cost of Sale Entry", options="Journal Entry", read_only=1, no_copy=1),
+	f("credit_note", "Link", "Credit Note", options="Sales Invoice", read_only=1, no_copy=1),
+	f("cogs_reversal_entry", "Link", "Cost of Sale Reversal Entry", options="Journal Entry", read_only=1, no_copy=1),
 	f("car_cost", "Currency", "Car Cost", read_only=1),
 	col("cb5"),
 	f("margin", "Currency", "Margin", read_only=1),

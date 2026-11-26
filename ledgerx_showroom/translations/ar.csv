@@ -300,3 +300,8 @@ Late,متأخر
 Paid,المدفوع
 Still Due,المتبقي
 Showroom Installments Due,الأقساط المستحقة (المعرض)
+A confirmed sale cannot be deleted. Issue a credit note instead.,لا يمكن حذف بيع مؤكد. أصدر إشعارًا دائنًا بدلًا من ذلك.
+Reversal of the cost of sale {0},عكس تكلفة البيع {0}
+Issue Credit Note,إصدار إشعار دائن
+Credit Note,إشعار دائن
+Cost of Sale Reversal Entry,قيد عكس تكلفة البيع

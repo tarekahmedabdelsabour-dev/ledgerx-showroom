@@ -45,6 +45,8 @@
   "sb_acc",
   "sales_invoice",
   "cogs_entry",
+  "credit_note",
+  "cogs_reversal_entry",
   "car_cost",
   "cb5",
   "margin",
@@ -308,6 +310,22 @@
    "fieldname": "cogs_entry",
    "fieldtype": "Link",
    "label": "Cost of Sale Entry",
+   "options": "Journal Entry",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "credit_note",
+   "fieldtype": "Link",
+   "label": "Credit Note",
+   "options": "Sales Invoice",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "cogs_reversal_entry",
+   "fieldtype": "Link",
+   "label": "Cost of Sale Reversal Entry",
    "options": "Journal Entry",
    "read_only": 1,
    "no_copy": 1

@@ -116,6 +116,6 @@
  "autoname": "format:TD-{#####}",
  "title_field": "lead_name",
  "icon": "fa fa-road",
- "allow_rename": 0,
- "track_changes": 1
+ "track_changes": 1,
+ "allow_rename": 0
 }

@@ -80,6 +80,6 @@
  "autoname": "format:{make}-{model_name}",
  "title_field": "model_name",
  "icon": "fa fa-car",
- "allow_rename": 0,
- "track_changes": 1
+ "track_changes": 1,
+ "allow_rename": 0
 }

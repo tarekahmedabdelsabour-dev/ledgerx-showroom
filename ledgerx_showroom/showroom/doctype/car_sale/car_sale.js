@@ -72,6 +72,8 @@ frappe.ui.form.on("Car Sale", {
 			}
 			frm.add_custom_button(__("Open Invoice"), () => frappe.set_route("Form", "Sales Invoice", frm.doc.sales_invoice));
 		}
+		if (s === "Confirmed") frm.add_custom_button(__("Issue Credit Note"), () => ask(__("Issue Credit Note"), [
+			{ fieldname: "reason", fieldtype: "Small Text", label: __("Reason"), reqd: 1 }], "issue_credit_note"), __("More"));
 		if (s === "Confirmed") frm.add_custom_button(__("Deliver the Car"), () => act("deliver")).addClass("btn-primary");
 		if (frm.doc.loan_application) frm.add_custom_button(__("Open Loan Application"), () => frappe.set_route("Form", "Loan Application", frm.doc.loan_application));
 		const ind = { Draft: "gray", Confirmed: "blue", Delivered: "green", Cancelled: "red" };
