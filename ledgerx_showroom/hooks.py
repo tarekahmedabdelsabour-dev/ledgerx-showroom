@@ -5,7 +5,7 @@ app_description = "Car showrooms: stock of new and used cars in one or many show
 app_email = "hello@ledgerx.local"
 app_license = "mit"
 
-required_apps = ["erpnext", "hrms"]
+required_apps = ["erpnext", "hrms", "ledgerx"]
 
 add_to_apps_screen = [
 	{
