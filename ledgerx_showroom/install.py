@@ -71,6 +71,7 @@ def ensure_settings():
 	if not s.commission_component and frappe.db.exists("Salary Component", COMPONENT):
 		s.commission_component, changed = COMPONENT, True
 	if changed and s.company:
+		s.flags.ignore_mandatory = True  # the accounts are chosen later, in the settings form
 		s.save(ignore_permissions=True)
 
 
